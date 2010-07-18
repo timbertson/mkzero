@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type='text/xsl' href='interface.xsl'?>
+<interface uri="http://gfxmonk.net/dist/0install/mkzero.xml" xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+  <name>mkzero</name>
+  <summary>convenient script for 0install packaging</summary>
+  <description>
+</description>
+  <needs-terminal/>
+  <group main="mkzero">
+    <implementation id="sha1new=748f8fdc40e169509bbb84046229d2ba962bf872" released="2010-07-18" version="0.1">
+    
+      <manifest-digest sha256="562af02e56b457694af9d2946defcd382d4637cf64d8b88f32292275f84458b1"/>
+      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-0.1.tgz" size="1522"/>
+    </implementation>
+  </group>
+</interface>
