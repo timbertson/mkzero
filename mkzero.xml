@@ -7,10 +7,13 @@
 </description>
   <needs-terminal/>
   <group main="mkzero">
-    <implementation id="sha1new=748f8fdc40e169509bbb84046229d2ba962bf872" released="2010-07-18" version="0.1">
-    
-      <manifest-digest sha256="562af02e56b457694af9d2946defcd382d4637cf64d8b88f32292275f84458b1"/>
-      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-0.1.tgz" size="1522"/>
+    <implementation id="sha1new=b38cba09eabd472dc2583f2adc5b521e48b1b487" released="2010-07-19" version="20100719.2218">
+      <manifest-digest sha256="ba157c78910ba614085225368ded74b0a691b6a6a0f6f725107bddf28ca60983"/>
+      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100719.2218.tgz" size="1615"/>
+    </implementation>
+    <implementation id="sha1new=ac673a13f1e1aecc1cb1cbed387c4240dd632539" released="2010-07-24" version="20100724.1935">
+      <manifest-digest sha256="924e6d5c0dd5390756645011d80d594708769bf70ccbdf8ca86d16ea0d41b016"/>
+      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100724.1935.tgz" size="1638"/>
     </implementation>
   </group>
 </interface>
