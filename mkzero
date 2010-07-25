@@ -34,10 +34,13 @@ def main():
 		opts.namespace += '/'
 	opts.filename = args[0]
 	opts.pkg = os.path.splitext(opts.filename)[0]
+	opts.localzip = None
+	if not opts.version:
+		if not (opts.copy_only or opts.edit):
+			ensure_version()
 	if opts.version=='date':
 		opts.version=time.strftime("%Y%m%d.%H%M")
 		print "version: %s" % (opts.version,)
-	opts.localzip = None
 	if opts.version and not opts.artifact:
 		zipname = "%s-%s.tgz" % (opts.pkg, opts.version)
 		opts.localzip = os.path.join(opts.build, zipname)
@@ -52,11 +55,23 @@ def main():
 		if opts.verbose: raise
 		sys.exit(2)
 
+def ensure_version():
+	version_suggestion = ''
+	try:
+		with open('VERSION') as version_file:
+			version_suggestion = read(version_file).strip()
+	except StandardError: pass
+	version_response = raw_input('version? [%s] ' % version_suggestion).strip()
+	if len(version_response) == 0:
+		opts.version = version_suggestion
+	else:
+		opts.version = version_response
+	assert opts.version, "version required!"
+
 def run():
 	assert opts.namespace is not None, "namespace required!"
 	set_interface()
 	if not (opts.copy_only or opts.edit):
-		assert opts.version is not None, "version required!"
 		mk_zip()
 		edit_xml()
 	if opts.edit:
