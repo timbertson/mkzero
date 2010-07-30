@@ -6,22 +6,10 @@
   <description>
 </description>
   <needs-terminal/>
-  <group main="mkzero">
-    <implementation id="sha1new=b38cba09eabd472dc2583f2adc5b521e48b1b487" released="2010-07-19" version="20100719.2218">
-      <manifest-digest sha256="ba157c78910ba614085225368ded74b0a691b6a6a0f6f725107bddf28ca60983"/>
-      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100719.2218.tgz" size="1615"/>
-    </implementation>
-    <implementation id="sha1new=ac673a13f1e1aecc1cb1cbed387c4240dd632539" released="2010-07-24" version="20100724.1935">
-      <manifest-digest sha256="924e6d5c0dd5390756645011d80d594708769bf70ccbdf8ca86d16ea0d41b016"/>
-      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100724.1935.tgz" size="1638"/>
-    </implementation>
-    <implementation id="sha1new=79a9a0d54cbd79fcc738c416a0db6542519d0b7d" released="2010-07-25" version="20100725.1508">
-      <manifest-digest sha256="4ba1bfe42c7839fca8a7fb79e12e4c8f0a434d8771ceab60d12172c83961817f"/>
-      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100725.1508.tgz" size="1773"/>
-    </implementation>
-    <implementation id="sha1new=513664531eedaedb6895314b403cc6e5dd0ea659" released="2010-07-30" version="20100730.2359">
-      <manifest-digest sha256="b75ad4e18658cced585e49b531267dfc83f29ad35cc8fdabb7618be196eb730d"/>
-      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100730.2359.tgz" size="1774"/>
+  <group main="mkzero.py">
+    <implementation id="sha1new=191f4fed94e8fca50e723b496e03659d1f14e0f5" released="2010-07-31" version="20100731.0026">
+      <manifest-digest sha256="a3f1820002995ddcac71c4831a0a426d8840e136a51d34ffaf0bd1d8f53047d4"/>
+      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0026.tgz" size="1894"/>
     </implementation>
   </group>
 </interface>

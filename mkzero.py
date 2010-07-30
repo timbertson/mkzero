@@ -41,6 +41,9 @@ def main():
 	if opts.version=='date':
 		opts.version=time.strftime("%Y%m%d.%H%M")
 		print "version: %s" % (opts.version,)
+	if len(opts.paths) == 1 and isarchive(opts.paths[0]):
+		opts.localzip = opts.paths[0]
+		opts.artifact = opts.namespace + opts.pkg + '/' + os.path.basename(opts.localzip)
 	if opts.version and not opts.artifact:
 		zipname = "%s-%s.tgz" % (opts.pkg, opts.version)
 		opts.localzip = os.path.join(opts.build, zipname)
@@ -54,6 +57,19 @@ def main():
 		print >> sys.stderr, "Error: %s" % (e,)
 		if opts.verbose: raise
 		sys.exit(2)
+
+def isarchive(filename):
+	"""
+	>>> isarchive("foo.tgz")
+	True
+	>>> isarchive("foo.tar.gz")
+	True
+	>>> isarchive("foo.tar.Gz")
+	True
+	>>> isarchive("foo")
+	False
+	"""
+	return os.path.splitext(filename)[-1].lower() in ('.tgz', '.gz', '.zip')
 
 def ensure_version():
 	version_suggestion = ''
@@ -89,6 +105,8 @@ def set_interface():
 
 def edit_xml():
 	kwargs = dict(archive_url=opts.artifact, set_released='today')
+	if '://' not in opts.artifact:
+		kwargs['archive_file'] = opts.artifact
 	if opts.localzip:
 		kwargs['archive_file'] = opts.localzip
 	if opts.extract:

@@ -7,7 +7,7 @@
 	<feed-for interface="http://gfxmonk.net/dist/0install/mkzero.xml"/>
 </description>
   <needs-terminal/>
-  <group main="mkzero">
+  <group main="mkzero.py">
     <implementation id="." released="2010-07-18" version="0.1-post" />
   </group>
 </interface>
