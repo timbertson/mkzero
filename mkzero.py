@@ -44,10 +44,12 @@ def main():
 	if len(opts.paths) == 1 and isarchive(opts.paths[0]):
 		opts.localzip = opts.paths[0]
 		opts.artifact = opts.namespace + opts.pkg + '/' + os.path.basename(opts.localzip)
+		opts.buildzip = False
 	if opts.version and not opts.artifact:
 		zipname = "%s-%s.tgz" % (opts.pkg, opts.version)
 		opts.localzip = os.path.join(opts.build, zipname)
 		opts.artifact = opts.namespace + opts.pkg + '/' + zipname
+		opts.buildzip = True
 	try:
 		run()
 	except AssertionError, e:
@@ -116,7 +118,7 @@ def edit_xml():
 	pub(opts.filename, **kwargs)
 
 def mk_zip():
-	if not opts.localzip:
+	if not (opts.localzip and opts.buildzip):
 		print "not making zip"
 		return
 	source_dirs = opts.paths or [opts.pkg]
