@@ -11,5 +11,9 @@
       <manifest-digest sha256="a3f1820002995ddcac71c4831a0a426d8840e136a51d34ffaf0bd1d8f53047d4"/>
       <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0026.tgz" size="1894"/>
     </implementation>
+    <implementation id="sha1new=2898b3779d5689c43d5fc0b76baea8ed05adfc53" released="2010-07-31" version="20100731.0052">
+      <manifest-digest sha256="9eb1f260603300e4fa4f9793374d0b8ad23a49eb1c45d918b52b0af5e5025e13"/>
+      <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0052.tgz" size="1912"/>
+    </implementation>
   </group>
 </interface>
