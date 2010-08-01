@@ -4,8 +4,8 @@
   <name>mkzero</name>
   <summary>convenient script for 0install packaging</summary>
   <description>
-	<feed-for interface="http://gfxmonk.net/dist/0install/mkzero.xml"/>
 </description>
+	<feed-for interface="http://gfxmonk.net/dist/0install/mkzero.xml"/>
   <needs-terminal/>
   <group main="mkzero.py">
     <implementation id="." released="2010-07-18" version="0.1-post" />
