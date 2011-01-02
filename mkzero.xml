@@ -1,9 +1,9 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <?xml-stylesheet type='text/xsl' href='interface.xsl'?>
-<interface uri="http://gfxmonk.net/dist/0install/mkzero.xml" xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface" uri="http://gfxmonk.net/dist/0install/mkzero.xml">
 	<name>mkzero</name>
 	<summary>zero-install feed publishing utility</summary>
-	<publish mode="0tools" xmlns="http://gfxmonk.net/dist/0install"/>
+	<publish xmlns="http://gfxmonk.net/dist/0install" mode="0tools"/>
 	<homepage>https://github.com/gfxmonk/mkzero</homepage>
 	<description>
 mkzero is a wrapper around 0publish to make publishing and updating
@@ -19,8 +19,8 @@ specifying as much default information as is reasonable. For
 example, the author uses the following alias:
 
 	alias mkzero-gfxmonk='mkzero.py \
-		--namespace=&quot;http://gfxmonk.net/dist/0install&quot; \
-		--dest=&quot;$HOME/Sites/gfxmonk/dist/0install&quot;'
+		--namespace="http://gfxmonk.net/dist/0install" \
+		--dest="$HOME/Sites/gfxmonk/dist/0install"'
 
 Given this alias, often the only required invocation is:
 
@@ -37,7 +37,7 @@ http://gfxmonk.net/dist/0install/version.xml )
 
 ### Required information:
 
-- URI:
+**URI**:
 
 Obviously, your feed needs an interface URI. This should not
 change between invocations. If you don't want to provide the
@@ -45,31 +45,31 @@ full URI, you can use the `--namespace` argument to provide
 the base URI, and your feed's filename will be appended to get
 the full URI.
 
-- version:
+**version**:
 
 If not given, this is assumed to be the contents of the
 `VERSION` file in the current directory. If `mkzero` uses this
 default, you will be prompted to accept the suggested version
 number.
 
-If $build/feed-name-$version.tgz already exists, you will
+If `$build/feed-name-$version.tgz` already exists, you will
 be prompted to overwrite it.
 
-If version is &quot;date&quot;, `mkzero` will generate a version of the
-form: &quot;YYYYMMDD.HHMM&quot;
+If version is "date", `mkzero` will generate a version of the
+form: "YYYYMMDD.HHMM"
 
-- path(s):
+**path(s)**:
 
 The paths to include in your artifact (.tgz). You can use
 `--path` multiple times to include multiple top-level files or
 directories. If not given, the basename of your feed file is
 assumed to be the single file or directory to include (i.e for
-foo.xml, it would assume that only &quot;foo&quot; is to go in the
+foo.xml, it would assume that only "foo" is to go in the
 artifact).
 
-### Paths:
+### Paths used by mkzero:
 
-- 0inst/
+**0inst/**
 
 mkzero assumes a build directory of 0inst/ for placing the
 generated .tgz files. You can pass --build or -b to change
@@ -77,43 +77,18 @@ this default.
 
 ### Optional information:
 
-- dest:
+**dest**:
 If supplied, mkzero will copy the following files into `dest`:
 
-feed-name.xml -&gt; $dest/
-$build/feed-name-$version.tgz -&gt; $dest/feed-name/
+ - _feed-name_.xml -&gt; `$dest`/
+ - `$build`/_feed-name_-`$version`.tgz -&gt; `$dest`/_feed-name_/
 
 After copying the feed xml file, mkzero will sign it with your
 default GPG key in order to enable remote execution.
 
 --------
 
-Full usage description:
-
-	Usage: mkzero [options] -v version -n URI xmlfile
-
-	Options:
-	   -v VERSION, --version=VERSION
-	                         version (REQUIRED)
-	   -n NAMESPACE, --namespace=NAMESPACE
-	                         namespace (URI - REQUIRED)
-	   -p PATHS, --path=PATHS
-	                         file/directory to publish (defaults to basename of xml file)
-	   -x EXTRACT, --extract=EXTRACT
-	                         extract path (within archive)
-	   -b BUILD, --build=BUILD
-	                         build dir (for tarballs)
-	   -d DEST, --dest=DEST  directory to copy published artifacts (signed xml and tgz)
-	   -V, --verbose         verbose
-	   -f, --force
-	   -a ARTIFACT, --artifact=ARTIFACT
-	                         artifact (ignores --path and --build)
-	   -c, --copy-only       copy to --publish-to only (don't build or add archive)
-	   -e, --edit            edit the xml directly
-	   -r, --replace         replace existing version &lt;implmentation&gt;
-
-
-[0release]: http://zero-install.sourceforge.net/0release.html
+For full usage, see `mkzero --help`
 	</description>
 	<needs-terminal/>
 	<group main="mkzero.py">

@@ -44,7 +44,7 @@ If not given, this is assumed to be the contents of the
 default, you will be prompted to accept the suggested version
 number.
 
-If $build/feed-name-$version.tgz already exists, you will
+If `$build/feed-name-$version.tgz` already exists, you will
 be prompted to overwrite it.
 
 If version is "date", `mkzero` will generate a version of the
