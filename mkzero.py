@@ -131,7 +131,7 @@ def mk_zip():
 			c('rm', '-f', opts.localzip)
 		else:
 			sys.exit(1)
-	c('tar', 'zcf', opts.localzip, '--exclude-vcs', *source_dirs)
+	c('tar', 'zchf', opts.localzip, '--exclude-vcs', *source_dirs)
 
 def sign(xml):
 	pub(xml, 'xmlsign')

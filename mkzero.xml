@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <?xml-stylesheet type='text/xsl' href='interface.xsl'?>
-<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface" uri="http://gfxmonk.net/dist/0install/mkzero.xml">
+<interface uri="http://gfxmonk.net/dist/0install/mkzero.xml" xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
 	<name>mkzero</name>
 	<summary>zero-install feed publishing utility</summary>
-	<publish xmlns="http://gfxmonk.net/dist/0install" mode="0tools"/>
+	<publish mode="0tools" xmlns="http://gfxmonk.net/dist/0install"/>
 	<homepage>https://github.com/gfxmonk/mkzero</homepage>
 	<description>
 mkzero is a wrapper around 0publish to make publishing and updating
@@ -19,8 +19,8 @@ specifying as much default information as is reasonable. For
 example, the author uses the following alias:
 
 	alias mkzero-gfxmonk='mkzero.py \
-		--namespace="http://gfxmonk.net/dist/0install" \
-		--dest="$HOME/Sites/gfxmonk/dist/0install"'
+		--namespace=&quot;http://gfxmonk.net/dist/0install&quot; \
+		--dest=&quot;$HOME/Sites/gfxmonk/dist/0install&quot;'
 
 Given this alias, often the only required invocation is:
 
@@ -55,8 +55,8 @@ number.
 If `$build/feed-name-$version.tgz` already exists, you will
 be prompted to overwrite it.
 
-If version is "date", `mkzero` will generate a version of the
-form: "YYYYMMDD.HHMM"
+If version is &quot;date&quot;, `mkzero` will generate a version of the
+form: &quot;YYYYMMDD.HHMM&quot;
 
 **path(s)**:
 
@@ -64,7 +64,7 @@ The paths to include in your artifact (.tgz). You can use
 `--path` multiple times to include multiple top-level files or
 directories. If not given, the basename of your feed file is
 assumed to be the single file or directory to include (i.e for
-foo.xml, it would assume that only "foo" is to go in the
+foo.xml, it would assume that only &quot;foo&quot; is to go in the
 artifact).
 
 ### Paths used by mkzero:
@@ -100,5 +100,9 @@ For full usage, see `mkzero --help`
 			<manifest-digest sha256="9eb1f260603300e4fa4f9793374d0b8ad23a49eb1c45d918b52b0af5e5025e13"/>
 			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0052.tgz" size="1912"/>
 		</implementation>
+		<implementation id="sha1new=72d102238d23338253b398110a80b620be5713eb" released="2011-01-03" version="20110103.1846">
+    <manifest-digest sha256="3da92902137961d608daf179c53236b26c6472f761a34c1ecb7d3ab89b5ce53c"/>
+    <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20110103.1846.tgz" size="1914"/>
+  </implementation>
 	</group>
 </interface>
