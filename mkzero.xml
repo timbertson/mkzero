@@ -91,7 +91,54 @@ default GPG key in order to enable remote execution.
 For full usage, see `mkzero --help`
 	</description>
 	<needs-terminal/>
+	<rich-description xmlns="http://gfxmonk.net/dist/0install">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>mkzero is a wrapper around 0publish to make publishing and updating zero install feeds simple.</p>
+			<p>It's sort of like a lightweight version of [0release]. But while 0release requires VCS integration and a releases directory and tags a handful of build steps, <code>mkzero</code> requires very little, and allows you to quickly publish new versions of your feeds.</p>
+			<p>It's designed so that you can have your own alias to it, specifying as much default information as is reasonable. For example, the author uses the following alias:</p>
+			<pre><code>alias mkzero-gfxmonk='mkzero.py \
+    --namespace=&quot;http://gfxmonk.net/dist/0install&quot; \
+    --dest=&quot;$HOME/Sites/gfxmonk/dist/0install&quot;'
+</code></pre>
+			<p>Given this alias, often the only required invocation is:</p>
+			<pre><code>version +
+mkzero-gfxmonk feed-name.xml
+</code></pre>
+			<p>To increment the current project's version number, create an artifact, add it to the feed file, sign it with my GPG key and copy it to the build directory of my website (which another script will rsync to the remote server).</p>
+			<p>(The <code>version</code> command above refers to http://gfxmonk.net/dist/0install/version.xml )</p>
+			<div id="required-information:">
+				<h3>Required information:</h3>
+				<p><strong>URI</strong>:</p>
+				<p>Obviously, your feed needs an interface URI. This should not change between invocations. If you don't want to provide the full URI, you can use the <code>--namespace</code> argument to provide the base URI, and your feed's filename will be appended to get the full URI.</p>
+				<p><strong>version</strong>:</p>
+				<p>If not given, this is assumed to be the contents of the <code>VERSION</code> file in the current directory. If <code>mkzero</code> uses this default, you will be prompted to accept the suggested version number.</p>
+				<p>If <code>$build/feed-name-$version.tgz</code> already exists, you will be prompted to overwrite it.</p>
+				<p>If version is &quot;date&quot;, <code>mkzero</code> will generate a version of the form: &quot;YYYYMMDD.HHMM&quot;</p>
+				<p><strong>path(s)</strong>:</p>
+				<p>The paths to include in your artifact (.tgz). You can use <code>--path</code> multiple times to include multiple top-level files or directories. If not given, the basename of your feed file is assumed to be the single file or directory to include (i.e for foo.xml, it would assume that only &quot;foo&quot; is to go in the artifact).</p>
+			</div>
+			<div id="paths-used-by-mkzero:">
+				<h3>Paths used by mkzero:</h3>
+				<p>
+					<strong>0inst/</strong>
+				</p>
+				<p>mkzero assumes a build directory of 0inst/ for placing the generated .tgz files. You can pass --build or -b to change this default.</p>
+			</div>
+			<div id="optional-information:">
+				<h3>Optional information:</h3>
+				<p><strong>dest</strong>: If supplied, mkzero will copy the following files into <code>dest</code>:</p>
+				<ul>
+					<li><em>feed-name</em>.xml -&gt; <code>$dest</code>/</li>
+					<li><code>$build</code>/<em>feed-name</em>-<code>$version</code>.tgz -&gt; <code>$dest</code>/<em>feed-name</em>/</li>
+				</ul>
+				<p>After copying the feed xml file, mkzero will sign it with your default GPG key in order to enable remote execution.</p>
+				<hr/>
+				<p>For full usage, see <code>mkzero --help</code></p>
+			</div>
+		</div>
+	</rich-description>
 	<group main="mkzero.py">
+		<environment insert="" mode="append" name="PYTHONPATH"/>
 		<implementation id="sha1new=191f4fed94e8fca50e723b496e03659d1f14e0f5" released="2010-07-31" version="20100731.0026">
 			<manifest-digest sha256="a3f1820002995ddcac71c4831a0a426d8840e136a51d34ffaf0bd1d8f53047d4"/>
 			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0026.tgz" size="1894"/>
@@ -101,8 +148,8 @@ For full usage, see `mkzero --help`
 			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0052.tgz" size="1912"/>
 		</implementation>
 		<implementation id="sha1new=72d102238d23338253b398110a80b620be5713eb" released="2011-01-03" version="20110103.1846">
-    <manifest-digest sha256="3da92902137961d608daf179c53236b26c6472f761a34c1ecb7d3ab89b5ce53c"/>
-    <archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20110103.1846.tgz" size="1914"/>
-  </implementation>
+			<manifest-digest sha256="3da92902137961d608daf179c53236b26c6472f761a34c1ecb7d3ab89b5ce53c"/>
+			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20110103.1846.tgz" size="1914"/>
+		</implementation>
 	</group>
 </interface>
