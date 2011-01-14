@@ -138,7 +138,7 @@ mkzero-gfxmonk feed-name.xml
 		</div>
 	</rich-description>
 	<group main="mkzero.py">
-		<environment insert="" mode="append" name="PYTHONPATH"/>
+		<environment insert="" mode="prepend" name="PYTHONPATH"/>
 		<implementation id="sha1new=191f4fed94e8fca50e723b496e03659d1f14e0f5" released="2010-07-31" version="20100731.0026">
 			<manifest-digest sha256="a3f1820002995ddcac71c4831a0a426d8840e136a51d34ffaf0bd1d8f53047d4"/>
 			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20100731.0026.tgz" size="1894"/>
