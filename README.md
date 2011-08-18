@@ -10,7 +10,8 @@ It's designed so that you can have your own alias to it,
 specifying as much default information as is reasonable. For
 example, the author uses the following alias:
 
-	alias mkzero-gfxmonk='mkzero.py \
+	alias mkzero-gfxmonk='0launch \
+		http://gfxmonk.net/dist/0install/mkzero.xml \
 		--namespace="http://gfxmonk.net/dist/0install" \
 		--dest="$HOME/Sites/gfxmonk/dist/0install"'
 
