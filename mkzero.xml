@@ -166,5 +166,9 @@ mkzero-gfxmonk feed-name.xml
 			<manifest-digest sha256="5672f6a9e7d1cfaf540d421d778762e77964f431c92f0bb638dc33d211ab212a"/>
 			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20110731.1708.tgz" size="1913"/>
 		</implementation>
+		<implementation id="sha1new=dd27d419b6cf4c5c69bc97e96142eec270c16189" released="2011-10-10" version="20111010.2055">
+			<manifest-digest sha256="24016796afb8b4cade6c300f6ca317cba3aad3f4f51c5f8925c0991ebb788573"/>
+			<archive href="http://gfxmonk.net/dist/0install/mkzero/mkzero-20111010.2055.tgz" size="1970"/>
+		</implementation>
 	</group>
 </interface>

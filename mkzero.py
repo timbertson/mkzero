@@ -20,6 +20,7 @@ def main():
 
 	parser.add_option("-V", "--verbose", default=False, action='store_true', help="verbose")
 	parser.add_option("-f", "--force", default=False, action='store_true')
+	parser.add_option("--resolve-links", default=False, action='store_true', help='resolve symlinks in artifact')
 
 	parser.add_option("-a", "--artifact", default=None, help="artifact (ignores --path and --build)")
 	parser.add_option("-c", "--copy-only", dest='copy_only', action="store_true", help="copy to --publish-to only (don't build or add archive)")
@@ -131,7 +132,10 @@ def mk_zip():
 			c('rm', '-f', opts.localzip)
 		else:
 			sys.exit(1)
-	c('tar', 'zcf', opts.localzip, '--exclude-vcs', *source_dirs)
+	flags = 'zc'
+	if opts.resolve_links:
+		flags += 'h'
+	c('tar', flags + 'f', opts.localzip, '--exclude-vcs', *source_dirs)
 
 def sign(xml):
 	pub(xml, 'xmlsign')
