@@ -139,7 +139,9 @@ mkzero-gfxmonk feed-name.xml
 	</rich-description>
 	<group main="mkzero.py">
 		<command name="run" path="mkzero.py">
-			<runner interface="http://repo.roscidus.com/python/python"/>
+			<runner interface="http://repo.roscidus.com/python/python">
+				<version before="3.0"/>
+			</runner>
 		</command>
 		<requires interface="http://0install.net/2007/interfaces/ZeroInstall.xml">
 			<environment insert="" mode="prepend" name="PYTHONPATH"/>
