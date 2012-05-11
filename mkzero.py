@@ -56,6 +56,7 @@ def main():
 	except AssertionError, e:
 		print >> sys.stderr, "ERROR: %s" % (e,)
 		parser.print_help()
+		sys.exit(1)
 	except Exception, e:
 		print >> sys.stderr, "Error: %s" % (e,)
 		if opts.verbose: raise
