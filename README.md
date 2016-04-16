@@ -1,3 +1,5 @@
+<img src="http://gfxmonk.net/dist/status/project/mkzero.png">
+
 mkzero is a wrapper around 0publish to make publishing and updating
 zero install feeds simple.
 
